@@ -1,8 +1,14 @@
+.nav-bar{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .title-bar {
     display: flex;
     align-items: baseline;
-    width: 60%;
-    margin: 0 auto;
 }
 
 .title {
@@ -22,5 +28,21 @@ header {
     grid-template-columns: 2fr 1fr;
 }
 
+.chosen-for-you {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-right: 1px solid #ccc;
+}
+
+.main-chosen {
+    height: 50vh;
+}
+
+.rest-chosen {
+    margin-left: 1rem;
+    height: 50vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
 
 

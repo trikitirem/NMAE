@@ -1,0 +1,19 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    margin-right: 1rem;
+}
+
+.description {
+    width: 70%;
+}
+
+.right-image {
+    background: #ccc;
+    width: 30%;
+}
+
+.other-info {
+    font-size: 0.8rem;
+}

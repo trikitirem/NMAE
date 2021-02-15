@@ -1,0 +1,30 @@
+.container {
+    height: 50vh;
+    color: black;
+}
+
+.bg-image {
+    height: 60%;
+    background: #ccc;
+}
+
+.author {
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.post-title {
+    font-size: 1.25rem;
+}
+
+.post-title:hover {
+    text-decoration: underline;
+}
+
+.other-info{
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+
+

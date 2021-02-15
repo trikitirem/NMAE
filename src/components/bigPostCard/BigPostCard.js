@@ -8,6 +8,12 @@ export default function BigPostCard() {
             <Link to="/posts">
                 <div className="container">
                     <div className="bg-image"></div>
+                    <div className="description">
+                        <div className="author">author name</div>
+                        <div className="post-title">Title</div>
+                        <div className="post-subtitle">Subtitle</div>
+                        <div className="other-info">date</div>
+                    </div>
                 </div>
             </Link>
         </BrowserRouter>
