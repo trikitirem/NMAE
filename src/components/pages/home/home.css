@@ -62,3 +62,10 @@ header {
     margin-top: 1rem;
     align-items: stretch;
 }
+
+.feed-posts{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    border-top: 1px solid #ccc;
+}

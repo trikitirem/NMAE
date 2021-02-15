@@ -32,7 +32,7 @@ export default function Home() {
                     <div><span>Recent top topics</span></div>
                 </div>
             </header>
-            <div style={{paddingBottom: "1rem"}}></div>
+            <div style={{ paddingBottom: "1rem" }}></div>
             <section className="trending">
                 <div><span>Trending on NMAE</span></div>
                 <div className="trending-list">
@@ -42,6 +42,16 @@ export default function Home() {
                     <PostCard />
                     <PostCard />
                     <PostCard />
+                </div>
+            </section>
+            <section className="feed-posts">
+                <div className="post-list">
+
+                </div>
+                <div>
+                    <aside>
+
+                    </aside>
                 </div>
             </section>
         </div>
