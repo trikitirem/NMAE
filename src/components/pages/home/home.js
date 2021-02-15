@@ -1,6 +1,6 @@
 import React from 'react';
-import BigPostCard from '../../bigPostCard/BigPostCard';
-import PostCard from '../../postCard/postCard';
+import BigPostCard from '../../postCards/bigPostCard/BigPostCard';
+import PostCard from '../../postCards/postCard/postCard';
 import './home.css';
 
 
@@ -28,9 +28,22 @@ export default function Home() {
                         <PostCard />
                     </div>
                 </div>
-                <div className="recent-top-topics"></div>
+                <div className="recent-top-topics">
+                    <div><span>Recent top topics</span></div>
+                </div>
             </header>
-            <section>trending on NMAE</section>
+            <div style={{paddingBottom: "1rem"}}></div>
+            <section className="trending">
+                <div><span>Trending on NMAE</span></div>
+                <div className="trending-list">
+                    <PostCard />
+                    <PostCard />
+                    <PostCard />
+                    <PostCard />
+                    <PostCard />
+                    <PostCard />
+                </div>
+            </section>
         </div>
     );
 }

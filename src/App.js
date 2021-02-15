@@ -7,17 +7,7 @@ import BlogPost from './components/pages/blogpost/blogpost';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-
-          <Route path="/posts" exact>
-            <BlogPost />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <Home />
     </div>
   );
 }

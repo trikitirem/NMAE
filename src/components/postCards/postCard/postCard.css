@@ -1,0 +1,30 @@
+
+.card {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    height: calc(100% - 1rem);
+}
+
+.description {
+    width: 70%;
+}
+
+.right-image {
+    background: #ccc;
+    width: 30%;
+}
+
+.other-info {
+    font-size: 0.8rem;
+}
+
+.post-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}

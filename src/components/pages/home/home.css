@@ -45,4 +45,20 @@ header {
     grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
+.recent-top-topics {
+    margin-left: 1rem;
+}
 
+.trending {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem; 
+}
+
+.trending-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    margin-top: 1rem;
+    align-items: stretch;
+}

@@ -9,7 +9,7 @@ export default function PostCard() {
                 <div className="card">
                     <div className="description">
                         <div className="author">author name</div>
-                        <div className="post-title">Title</div>
+                        <div className="post-title">Some Placeholder Title: Article About Nothing</div>
                         <div className="other-info">Date</div>
                     </div>
                     <div className="right-image"></div>
