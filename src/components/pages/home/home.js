@@ -3,8 +3,11 @@ import BigPostCard from '../../postCards/bigPostCard/BigPostCard';
 import PostCard from '../../postCards/postCard/postCard';
 import './home.css';
 
+import {connect} from 'react-redux';
 
-export default function Home() {
+function Home({auth}) {
+    console.log(auth);
+
     return (
         <div>
             <div className="nav-bar">
@@ -46,7 +49,6 @@ export default function Home() {
             </section>
             <section className="feed-posts">
                 <div className="post-list">
-
                 </div>
                 <div>
                     <aside>
@@ -57,3 +59,11 @@ export default function Home() {
         </div>
     );
 }
+
+const mapStateToProps = (state) =>{
+    return {
+        auth: state.auth,
+    }
+}
+
+export default connect(mapStateToProps)(Home);
