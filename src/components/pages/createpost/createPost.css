@@ -1,0 +1,32 @@
+span {
+    font-size: 1.5rem;
+}
+
+input {
+    width: 100%;
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder, input::-moz-placeholder {
+    font-weight: 300;
+}
+
+
+#title {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+#subtitle {
+    font-size: 1.5rem;
+}
+
+.topics-choose {
+    background:#f0f0f0;
+    margin: 1rem 0;
+    padding: 1rem;
+}

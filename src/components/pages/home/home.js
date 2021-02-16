@@ -4,22 +4,16 @@ import PostCard from '../../postCards/postCard/postCard';
 import './home.css';
 
 import {connect} from 'react-redux';
+import Navbar from '../../navbar/navbar';
+import Footer from '../../footer/footer';
 
 function Home({auth}) {
     console.log(auth);
 
     return (
         <div>
-            <div className="nav-bar">
-                <div className="title-bar">
-                    <div className="title">
-                        <span>NMAE</span>
-                    </div>
-                    <div>share your experiences</div>
-                </div>
-                <div>avatar</div>
-            </div>
-            <header>
+            <Navbar />
+            <header id="home-header">
                 <div className="chosen-for-you">
                     <div className="main-chosen">
                         <BigPostCard />
@@ -56,6 +50,7 @@ function Home({auth}) {
                     </aside>
                 </div>
             </section>
+            <Footer />
         </div>
     );
 }

@@ -1,0 +1,19 @@
+.nav-bar{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-bar {
+    display: flex;
+    align-items: baseline;
+}
+
+.title {
+    /* TODO: change font  */
+    font-size: 2rem;
+    padding-right: 0.5rem;
+    margin: 1rem 0;
+}

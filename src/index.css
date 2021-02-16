@@ -10,3 +10,20 @@ body {
 a:link, a:visited {
   text-decoration: none;
 }
+
+header, section {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.article {
+  width: 40%;
+  margin: 0 auto;
+}
+
+footer {
+  background: black;
+  color: white;
+  margin-top: 1rem;
+  padding: 1rem;
+}
