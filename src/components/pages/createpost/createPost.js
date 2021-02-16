@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import Navbar from '../../navbar/navbar';
+import ComponentOptions from '../../postComponents/options/options';
 import './createPost.css';
 
 function CreatePost() {
@@ -24,6 +25,7 @@ function CreatePost() {
             <div className="article-elements">
                 {article.article.map(item => {
                     return (<div key={item.id}>
+                        <div style={{display: 'flex', justifyContent: 'center'}}><ComponentOptions /></div>
                         <p>{item.content}</p>
                     </div>);
                 })}
