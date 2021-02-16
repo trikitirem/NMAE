@@ -53,4 +53,19 @@ p {
 
 .add-controlls-item {
     margin-top: 0.5rem;
+    cursor: pointer;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.add-controlls-item:hover {
+    background: #e7e7e7;
 }
