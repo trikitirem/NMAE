@@ -46,6 +46,7 @@ function Home({auth}) {
                 </div>
                 <div>
                     <aside>
+                        
                     </aside>
                 </div>
             </section>
