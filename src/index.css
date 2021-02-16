@@ -61,7 +61,7 @@ footer {
 }
 
 textarea {
-  font-family: "Oswald", sans-serif;
+  font-family: inherit;
   resize: none;
   width: 100%;
   border: none;

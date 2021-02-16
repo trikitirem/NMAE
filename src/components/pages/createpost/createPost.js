@@ -12,11 +12,27 @@ import { ReactComponent as Image } from './../../../assets/icons/image.svg';
 import { ReactComponent as Dots } from './../../../assets/icons/dots.svg';
 
 function CreatePost() {
+
+    //TODO: track changes in article elements !!!!!!!
+
     const [article, setArticle] = useState({
         title: "",
         description: "",
         elements: [],
     });
+
+    const handleChange = (e) => {
+        //TODO: check why that doesn't work:
+        //setArticle({[e.target.id]: e.target.value});
+
+        let old = article;
+        if (e.target.id === "title") {
+            setArticle({ title: e.target.value, description: old.description, elements: old.elements });
+               
+        } else if (e.target.id === "description") {
+            setArticle({ title: old.title, description: e.target.value, elements: old.elements });
+        }
+    }
 
     const removeElement = (id) => {
         let elements = article.elements.filter(item => item.id != id);
@@ -47,9 +63,9 @@ function CreatePost() {
                 </div>
             case "image":
                 return <div className="element-img">
-                    { article.elements[id].source === "" ? <div>
-                       upload
-                    </div> : <div>uploaded</div> }
+                    {article.elements[id].source === "" ? <div>
+                        upload
+                    </div> : <div>uploaded</div>}
                 </div>
             default:
                 break;
@@ -76,9 +92,8 @@ function CreatePost() {
                 break;
         }
 
-        let old = article.elements;
-        setArticle({ elements: [...old, element] });
-        console.log(article);
+        let old = article;
+        setArticle({ elements: [...old.elements, element], title: old.title, description: old.description });
     }
 
     return (<div>
@@ -89,13 +104,14 @@ function CreatePost() {
                 <div className="btn">Share</div>
             </div>
             <div className="main-img"></div>
-            <div><input type="text" placeholder="Title" id="title" autoComplete="off" /></div>
-            <div><input type="text" placeholder="Subtitle" id="description" autoComplete="off" /></div>
-            <div className="topics-choose"></div>
+            <div><input type="text" placeholder="Title" id="title" autoComplete="off" onChange={handleChange} value={article.title} /></div>
+            <div><input type="text" placeholder="Description" id="description" autoComplete="off" onChange={handleChange} value={article.description} /></div>
+            <div className="topics-choose"> Choose tags </div>
             <div className="article-elements">
                 {article.elements.map(item => {
                     return (<div key={item.id}>
-                        <div style={{ display: 'flex', justifyContent: 'center' }}><ComponentOptions id={item.id} remove={removeElement} /></div>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <ComponentOptions id={item.id} remove={removeElement} up={goUp} down={goDown} /></div>
                         {renderArticleElement(item.type, item.id)}
                     </div>);
                 })}
@@ -104,10 +120,10 @@ function CreatePost() {
         </div>
         <div className="add-controls">
             <Add width="30" height="30" />
-            <div className="add-controlls-item" onClick={()=>addAticleElement("paragraph")}><Paragraph width="24" height="24" /></div>
-            <div className="add-controlls-item" onClick={()=>addAticleElement("subtitle")} > <Subtitle width="24" height="24" /></div>
-            <div className="add-controlls-item" onClick={()=>addAticleElement("image")} > <Image width="24" height="24" /></div>
-            <div className="add-controlls-item" onClick={()=>addAticleElement("dots")} > <Dots width="24" height="24" /></div>
+            <div className="add-controlls-item" onClick={() => addAticleElement("paragraph")}><Paragraph width="24" height="24" /></div>
+            <div className="add-controlls-item" onClick={() => addAticleElement("subtitle")} > <Subtitle width="24" height="24" /></div>
+            <div className="add-controlls-item" onClick={() => addAticleElement("image")} > <Image width="24" height="24" /></div>
+            <div className="add-controlls-item" onClick={() => addAticleElement("dots")} > <Dots width="24" height="24" /></div>
         </div>
     </div>);
 }

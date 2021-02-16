@@ -9,7 +9,7 @@ export default function BigPostCard() {
             <div className="description">
                 <div className="author">author name</div>
                 <div className="post-title">Title</div>
-                <div className="post-subtitle">Subtitle</div>
+                <div className="post-description">Description</div>
                 <div className="other-info">date</div>
             </div>
         </div>
