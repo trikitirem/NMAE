@@ -5,6 +5,7 @@ span {
 input {
     width: 100%;
     border: none;
+    font-family: "Oswald", sans-serif;
 }
 
 input:focus {
@@ -21,8 +22,8 @@ input::-moz-placeholder {
     margin: 1rem 0;
 }
 
-#subtitle {
-    font-size: 1.5rem;
+#description {
+    font-size: 1.2rem;
 }
 
 .topics-choose {
@@ -63,9 +64,28 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .add-controlls-item:hover {
     background: #e7e7e7;
+}
+
+.element-dots {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 2rem;
+}
+
+.element-paragraph,
+.element-subtitle {
+    margin-bottom: 1rem;
+}
+
+.element-img {
+    background: #f0f0f0;
+    padding: 1rem;
+}
+
+#subtitle-textarea {
+    font-size: 1.5rem;
 }

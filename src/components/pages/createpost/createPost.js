@@ -15,16 +15,70 @@ function CreatePost() {
     const [article, setArticle] = useState({
         title: "",
         description: "",
-        elements: [
-            { id: 1, type: "paragraph", content: "Non aliqua sunt consectetur reprehenderit nostrud ullamco esse eiusmod do in sint ea. Dolor nulla et excepteur ullamco veniam ea laborum cillum quis. Duis tempor minim incididunt cupidatat enim ut commodo amet amet culpa cillum dolore ex sunt. Exercitation tempor dolor officia occaecat anim excepteur laboris laboris et aute cupidatat. In culpa incididunt laborum aliqua irure fugiat tempor." },
-            { id: 2, type: "paragraph", content: "Non aliqua sunt consectetur reprehenderit nostrud ullamco esse eiusmod do in sint ea. Dolor nulla et excepteur ullamco veniam ea laborum cillum quis. Duis tempor minim incididunt cupidatat enim ut commodo amet amet culpa cillum dolore ex sunt. Exercitation tempor dolor officia occaecat anim excepteur laboris laboris et aute cupidatat. In culpa incididunt laborum aliqua irure fugiat tempor." },
-            { id: 3, type: "dots" },
-        ],
+        elements: [],
     });
 
     const removeElement = (id) => {
         let elements = article.elements.filter(item => item.id != id);
         setArticle({ elements });
+    }
+
+    const goUp = (id) => {
+        console.log("up!");
+    }
+
+    const goDown = (id) => {
+        console.log("down!");
+    }
+
+    const renderArticleElement = (type, id) => {
+        switch (type) {
+            case "paragraph":
+                return <div className="element-paragraph">
+                    <textarea placeholder="type something here..."></textarea>
+                </div>;
+            case "subtitle":
+                return <div className="element-subtitle">
+                    <textarea id="subtitle-textarea" placeholder="type something here..."></textarea>
+                </div>
+            case "dots":
+                return <div className="element-dots">
+                    <span>...</span>
+                </div>
+            case "image":
+                return <div className="element-img">
+                    { article.elements[id].source === "" ? <div>
+                       upload
+                    </div> : <div>uploaded</div> }
+                </div>
+            default:
+                break;
+        }
+    }
+
+    const addAticleElement = (type) => {
+        let element = { id: article.elements.length }
+
+        switch (type) {
+            case "paragraph":
+                element = { ...element, type: "paragraph", content: "" };
+                break;
+            case "subtitle":
+                element = { ...element, type: "subtitle", content: "" };
+                break;
+            case "dots":
+                element = { ...element, type: "dots" };
+                break;
+            case "image":
+                element = { ...element, type: "image", source: "" };
+                break;
+            default:
+                break;
+        }
+
+        let old = article.elements;
+        setArticle({ elements: [...old, element] });
+        console.log(article);
     }
 
     return (<div>
@@ -36,15 +90,13 @@ function CreatePost() {
             </div>
             <div className="main-img"></div>
             <div><input type="text" placeholder="Title" id="title" autoComplete="off" /></div>
-            <div><input type="text" placeholder="Subtitle" id="subtitle" autoComplete="off" /></div>
+            <div><input type="text" placeholder="Subtitle" id="description" autoComplete="off" /></div>
             <div className="topics-choose"></div>
             <div className="article-elements">
                 {article.elements.map(item => {
                     return (<div key={item.id}>
                         <div style={{ display: 'flex', justifyContent: 'center' }}><ComponentOptions id={item.id} remove={removeElement} /></div>
-                        {item.type === "paragraph" ?
-                            <p>{item.content}</p>
-                            : <div style={{ letterSpacing: "2px", textAlign: 'center' }}><span>...</span></div>}
+                        {renderArticleElement(item.type, item.id)}
                     </div>);
                 })}
 
@@ -52,10 +104,10 @@ function CreatePost() {
         </div>
         <div className="add-controls">
             <Add width="30" height="30" />
-            <div className="add-controlls-item"><Paragraph width="24" height="24" /></div>
-            <div className="add-controlls-item"><Subtitle width="24" height="24" /></div>
-            <div className="add-controlls-item"><Image width="24" height="24" /></div>
-            <div className="add-controlls-item"><Dots width="24" height="24" /></div>
+            <div className="add-controlls-item" onClick={()=>addAticleElement("paragraph")}><Paragraph width="24" height="24" /></div>
+            <div className="add-controlls-item" onClick={()=>addAticleElement("subtitle")} > <Subtitle width="24" height="24" /></div>
+            <div className="add-controlls-item" onClick={()=>addAticleElement("image")} > <Image width="24" height="24" /></div>
+            <div className="add-controlls-item" onClick={()=>addAticleElement("dots")} > <Dots width="24" height="24" /></div>
         </div>
     </div>);
 }
