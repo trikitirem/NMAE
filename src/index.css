@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap");
 
+
+
+/* Hides scrollbar */
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  
+  background: transparent;  
+}
+/**/
+
 body {
   font-family: "Oswald", sans-serif;
   margin: 0;
