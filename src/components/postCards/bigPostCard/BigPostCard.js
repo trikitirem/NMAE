@@ -1,6 +1,5 @@
 import React from 'react'
-
-import "./card.css";
+import "./style.css";
 
 export default function BigPostCard() {
     return (

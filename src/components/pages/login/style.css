@@ -1,0 +1,43 @@
+.auth-page {
+    width: 60%;
+    margin: 15rem auto;
+}
+.title-big {
+    font-size: 3rem;
+    width: 100%;
+}
+
+.title-big > span {
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+.auth-page > footer {
+    position: fixed;
+    bottom: 0;
+    width: calc(60vw * 20%);    
+}
+
+
+
+.auth-page-form > input{
+    background: #e7e7e7;
+    padding: 1rem;
+    width: 20%;
+    margin-bottom: 0.75rem;
+}
+
+.auth-page-form > .btn {
+    width: 20%;
+    padding:0.75rem 1rem;
+}
+
+.auth-page-form > span {
+    font-size: 0.9rem;
+}
+
+span .link {
+    font-size: 0.9rem;
+    color: #f55742;
+    cursor: pointer;
+}

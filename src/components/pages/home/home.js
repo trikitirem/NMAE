@@ -1,15 +1,13 @@
 import React from 'react';
 import BigPostCard from '../../postCards/bigPostCard/BigPostCard';
 import PostCard from '../../postCards/postCard/postCard';
-import './home.css';
+import './style.css';
 
 import {connect} from 'react-redux';
 import Navbar from '../../navbar/navbar';
 import Footer from '../../footer/footer';
 
 function Home({auth}) {
-    console.log(auth);
-
     return (
         <div>
             <Navbar />
@@ -26,12 +24,12 @@ function Home({auth}) {
                     </div>
                 </div>
                 <div className="recent-top-topics">
-                    <div><span>Recent top topics</span></div>
+                    <div><span>recent top topics</span></div>
                 </div>
             </header>
             <div style={{ paddingBottom: "1rem" }}></div>
             <section className="trending">
-                <div><span>Trending on NMAE</span></div>
+                <div><span>trending on NMAE</span></div>
                 <div className="trending-list">
                     <PostCard />
                     <PostCard />

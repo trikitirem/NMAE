@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Navbar from '../../navbar/navbar';
 import ComponentOptions from '../../postComponents/options/options';
 import ImageElement from '../../postComponents/image/image';
-import './createPost.css';
+import './style.css';
 
 //icons
 import { ReactComponent as Add } from './../../../assets/icons/plus-circle.svg';
@@ -11,8 +11,9 @@ import { ReactComponent as Paragraph } from './../../../assets/icons/paragraph.s
 import { ReactComponent as Subtitle } from './../../../assets/icons/subtitle.svg';
 import { ReactComponent as Image } from './../../../assets/icons/image.svg';
 import { ReactComponent as Dots } from './../../../assets/icons/dots.svg';
+import { addArticle } from '../../../store/actions/articleActions';
 
-function CreatePost() {
+function CreatePost({ addArticle }) {
     const [article, setArticle] = useState({
         title: "",
         description: "",
@@ -77,12 +78,14 @@ function CreatePost() {
                 </div>
             case "dots":
                 return <div className="element-dots">
-                    <span>...</span>
+                    <div>
+                        <span>...</span>
+                    </div>
                 </div>
             case "image":
                 return <div className="element-img">
                     <ImageElement id={id} uploaded={article.elements[id].source === "" ? false : true}
-                     save={uploadImage}  image={article.elements[id].source} />
+                        save={uploadImage} image={article.elements[id].source} />
                 </div>
             default:
                 break;
@@ -130,12 +133,12 @@ function CreatePost() {
         <Navbar />
         <div className="article">
             <div className="top-bar">
-                <div><span>Create new Post</span></div>
-                <div className="btn">Share</div>
+                <div><span>create new post</span></div>
+                <div className="btn" onClick={()=> addArticle(article)}>Share</div>
             </div>
             <div className="main-img"></div>
-            <div><input type="text" placeholder="Title" id="title" autoComplete="off" onChange={handleChange} value={article.title} /></div>
-            <div><input type="text" placeholder="Description" id="description" autoComplete="off" onChange={handleChange} value={article.description} /></div>
+            <div><input type="text" placeholder="title" id="title" autoComplete="off" onChange={handleChange} value={article.title} /></div>
+            <div><input type="text" placeholder="description" id="description" autoComplete="off" onChange={handleChange} value={article.description} /></div>
             <div className="topics-choose"> Choose tags </div>
             <div className="article-elements">
                 {article.elements.map(item => {
@@ -157,7 +160,10 @@ function CreatePost() {
     </div>);
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addArticle: (data) => dispatch(addArticle(data)),
+    };
+}
 
-
-
-export default connect()(CreatePost);
+export default connect(null, mapDispatchToProps)(CreatePost);

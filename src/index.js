@@ -11,6 +11,8 @@ import Home from './components/pages/home/home';
 import CreatePost from './components/pages/createpost/createPost';
 
 import { Route } from "wouter";
+import LoginPage from './components/pages/login/login';
+import SignupPage from './components/pages/signup/signup';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -22,6 +24,12 @@ ReactDOM.render(
       </Route>
       <Route path="/create">
         <CreatePost />
+      </Route>
+      <Route path="/login">
+        <LoginPage />
+      </Route>
+      <Route path="/register">
+        <SignupPage />
       </Route>
     </Provider>
   </React.StrictMode>,
