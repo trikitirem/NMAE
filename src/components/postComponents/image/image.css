@@ -1,0 +1,23 @@
+.img-input {
+    background: #f0f0f0;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+#img-input {
+    display: none;
+}
+
+label {
+    background: #f55742;
+    padding: 0.5rem 0.75rem;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+}
+
+.image-display > img {
+    width: 100%;
+}

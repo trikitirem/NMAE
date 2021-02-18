@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import Navbar from '../../navbar/navbar';
 import ComponentOptions from '../../postComponents/options/options';
+import ImageElement from '../../postComponents/image/image';
 import './createPost.css';
 
 //icons
@@ -12,9 +13,6 @@ import { ReactComponent as Image } from './../../../assets/icons/image.svg';
 import { ReactComponent as Dots } from './../../../assets/icons/dots.svg';
 
 function CreatePost() {
-
-    //TODO: track changes in article elements !!!!!!!
-
     const [article, setArticle] = useState({
         title: "",
         description: "",
@@ -69,13 +67,13 @@ function CreatePost() {
         switch (type) {
             case "paragraph":
                 return <div className="element-paragraph"
-                    onChange={e => TextElsementsStateChange(e, id)}>
+                    onChange={e => textElsementsStateChange(e, id)}>
                     <textarea placeholder="type something here..." ></textarea>
                 </div>;
             case "subtitle":
                 return <div className="element-subtitle">
                     <textarea id="subtitle-textarea" placeholder="type something here..."
-                        onChange={e => TextElsementsStateChange(e, id)}></textarea>
+                        onChange={e => textElsementsStateChange(e, id)}></textarea>
                 </div>
             case "dots":
                 return <div className="element-dots">
@@ -83,19 +81,23 @@ function CreatePost() {
                 </div>
             case "image":
                 return <div className="element-img">
-                    {article.elements[id].source === "" ?
-                        <div>
-                            upload
-                    </div> : <div>uploaded</div>}
+                    <ImageElement id={id} uploaded={article.elements[id].source === "" ? false : true}
+                     save={uploadImage}  image={article.elements[id].source} />
                 </div>
             default:
                 break;
         }
     }
 
-    const TextElsementsStateChange = (e, id) => {
+    const textElsementsStateChange = (e, id) => {
         let newState = article;
         newState.elements[id].content = e.target.value;
+        setArticle({ ...newState });
+    }
+
+    const uploadImage = (id, src) => {
+        let newState = article;
+        newState.elements[id].source = src;
         setArticle({ ...newState });
     }
 
