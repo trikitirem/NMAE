@@ -22,29 +22,48 @@ function CreatePost() {
     });
 
     const handleChange = (e) => {
-        //TODO: check why that doesn't work:
-        //setArticle({[e.target.id]: e.target.value});
+        let newState = article;
+        if (e.target.id === "title")
+            newState.title = e.target.value;
+        else if (e.target.id === "description")
+            newState.description = e.target.value;
 
-        let old = article;
-        if (e.target.id === "title") {
-            setArticle({ title: e.target.value, description: old.description, elements: old.elements });
-               
-        } else if (e.target.id === "description") {
-            setArticle({ title: old.title, description: e.target.value, elements: old.elements });
-        }
+        setArticle({ ...newState });
     }
 
     const removeElement = (id) => {
-        let elements = article.elements.filter(item => item.id != id);
-        setArticle({ elements });
+        let newState = article;
+        newState.elements = newState.elements.filter(item => item.id != id);
+        setArticle({ ...newState });
     }
 
     const goUp = (id) => {
-        console.log("up!");
+        if (id > 0) {
+            let newState = article;
+            const element1 = newState.elements[id];
+            const element2 = newState.elements[id - 1];
+            newState.elements.splice(id - 1, 2, element1, element2);
+
+            moveElements(newState);
+        }
     }
 
     const goDown = (id) => {
-        console.log("down!");
+        if (id < article.elements.length - 1) {
+            let newState = article;
+            const element1 = newState.elements[id + 1];
+            const element2 = newState.elements[id];
+            newState.elements.splice(id, 2, element1, element2);
+            moveElements(newState);
+        }
+    }
+
+    const moveElements = (newState) => {
+        for (let i = 0; i <= newState.elements.length - 1; i++) {
+            newState.elements[i].id = i;
+        }
+
+        setArticle({ ...newState });
     }
 
     const renderArticleElement = (type, id) => {
@@ -63,8 +82,9 @@ function CreatePost() {
                 </div>
             case "image":
                 return <div className="element-img">
-                    {article.elements[id].source === "" ? <div>
-                        upload
+                    {article.elements[id].source === "" ?
+                        <div>
+                            upload
                     </div> : <div>uploaded</div>}
                 </div>
             default:
@@ -92,8 +112,9 @@ function CreatePost() {
                 break;
         }
 
-        let old = article;
-        setArticle({ elements: [...old.elements, element], title: old.title, description: old.description });
+        let newState = article;
+        newState.elements = [...newState.elements, element]
+        setArticle({ ...newState });
     }
 
     return (<div>
@@ -115,7 +136,6 @@ function CreatePost() {
                         {renderArticleElement(item.type, item.id)}
                     </div>);
                 })}
-
             </div>
         </div>
         <div className="add-controls">
