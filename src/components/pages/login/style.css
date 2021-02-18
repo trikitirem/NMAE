@@ -18,7 +18,9 @@
     width: calc(60vw * 20%);    
 }
 
-
+.footer-items {
+    font-size: 0.9rem;
+}
 
 .auth-page-form > input{
     background: #e7e7e7;

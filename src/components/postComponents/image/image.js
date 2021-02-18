@@ -16,7 +16,7 @@ export default function ImageElement({ id, uploaded, save, image }) {
             <div className="image-display"><img src={image} /></div> :
             <div className="img-input">
                 <div>
-                    <label for="img-input">Upload image</label>
+                    <label htmlFor="img-input">Upload image</label>
                     <input id="img-input" type="file" accept="image/*" onChange={displayImage} />
                 </div>
             </div>

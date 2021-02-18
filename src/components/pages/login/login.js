@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import { actionsLogIn } from '../../../store/actions/authActions';
 import { useLocation } from "wouter";
@@ -6,9 +6,11 @@ import './style.css';
 
 function LoginPage() {
     const [location, setLocation] = useLocation();
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
 
     const submit = () => {
-
+        console.log(login, password);
     }
 
     return (
@@ -17,9 +19,9 @@ function LoginPage() {
                 <span onClick={() => setLocation("/")}>NMAE</span> share your experiences
             </div>
             <div className="auth-page-form">
-                <input type="text" placeholder="login" /><br />
-                <input type="password" placeholder="passowrod" /><br />
-                <div className="btn">login</div><br />
+                <input type="text" value={login} placeholder="login" onChange={e => setLogin(e.target.value)} /><br />
+                <input type="password" value={password} placeholder="passowrod" onChange={e => setPassword(e.target.value)} /><br />
+                <div className="btn" onClick={submit}>log in</div><br />
                 <span>no account? <span className="link" onClick={() => setLocation('/register')}>sign up</span></span>
             </div>
 
@@ -39,4 +41,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 }
 
-export default connect(mapDispatchToProps)(LoginPage);
+export default connect(null, mapDispatchToProps)(LoginPage);

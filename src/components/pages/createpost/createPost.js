@@ -134,7 +134,7 @@ function CreatePost({ addArticle }) {
         <div className="article">
             <div className="top-bar">
                 <div><span>create new post</span></div>
-                <div className="btn" onClick={()=> addArticle(article)}>Share</div>
+                <div className="btn" onClick={()=> addArticle(article)}>share</div>
             </div>
             <div className="main-img"></div>
             <div><input type="text" placeholder="title" id="title" autoComplete="off" onChange={handleChange} value={article.title} /></div>
