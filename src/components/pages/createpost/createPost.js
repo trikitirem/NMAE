@@ -43,7 +43,6 @@ function CreatePost() {
             const element1 = newState.elements[id];
             const element2 = newState.elements[id - 1];
             newState.elements.splice(id - 1, 2, element1, element2);
-
             moveElements(newState);
         }
     }
@@ -69,12 +68,14 @@ function CreatePost() {
     const renderArticleElement = (type, id) => {
         switch (type) {
             case "paragraph":
-                return <div className="element-paragraph">
-                    <textarea placeholder="type something here..."></textarea>
+                return <div className="element-paragraph"
+                    onChange={e => TextElsementsStateChange(e, id)}>
+                    <textarea placeholder="type something here..." ></textarea>
                 </div>;
             case "subtitle":
                 return <div className="element-subtitle">
-                    <textarea id="subtitle-textarea" placeholder="type something here..."></textarea>
+                    <textarea id="subtitle-textarea" placeholder="type something here..."
+                        onChange={e => TextElsementsStateChange(e, id)}></textarea>
                 </div>
             case "dots":
                 return <div className="element-dots">
@@ -90,6 +91,12 @@ function CreatePost() {
             default:
                 break;
         }
+    }
+
+    const TextElsementsStateChange = (e, id) => {
+        let newState = article;
+        newState.elements[id].content = e.target.value;
+        setArticle({ ...newState });
     }
 
     const addAticleElement = (type) => {
