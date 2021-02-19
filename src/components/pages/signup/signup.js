@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { actionsSignUp } from '../../../store/actions/authActions';
 import { useLocation } from "wouter";
 
-function SignupPage({actionsSignUp}) {
+function SignupPage({ actionsSignUp }) {
     const [location, setLocation] = useLocation();
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 
-    
+    const redirect = () => {
+        setLocation("/");
+    }
 
     return (
         <div className="auth-page">
@@ -18,7 +20,7 @@ function SignupPage({actionsSignUp}) {
             <div className="auth-page-form">
                 <input type="text" value={login} placeholder="login" onChange={e => setLogin(e.target.value)} /><br />
                 <input type="password" value={password} placeholder="passowrod" onChange={e => setPassword(e.target.value)} /><br />
-                <div className="btn" onClick={()=> actionsSignUp(login, password)}>sign up</div><br />
+                <div className="btn" onClick={() => actionsSignUp({ login, password, redirect })}>sign up</div><br />
                 <span>have an account? <span className="link" onClick={() => setLocation('/login')}>log in</span></span>
             </div>
 
@@ -38,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 }
 
-export default connect(null ,mapDispatchToProps)(SignupPage);
+export default connect(null, mapDispatchToProps)(SignupPage);

@@ -1,4 +1,5 @@
 const initState = {
+    id: "",
 }
 
 const authReducer = (state = initState, action) => {
@@ -6,11 +7,11 @@ const authReducer = (state = initState, action) => {
         case "AUTH_USER":
             state = action.user;
             break;
+        case "LOG_OUT":
+            state = {};
         default:
             break;
     }
-
-    console.log(state);
     return state;
 }
 

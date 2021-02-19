@@ -4,13 +4,13 @@ import { actionsLogIn } from '../../../store/actions/authActions';
 import { useLocation } from "wouter";
 import './style.css';
 
-function LoginPage() {
+function LoginPage({actionsLogIn}) {
     const [location, setLocation] = useLocation();
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 
-    const submit = () => {
-        console.log(login, password);
+    const redirect = () => {
+        setLocation("/");
     }
 
     return (
@@ -21,7 +21,7 @@ function LoginPage() {
             <div className="auth-page-form">
                 <input type="text" value={login} placeholder="login" onChange={e => setLogin(e.target.value)} /><br />
                 <input type="password" value={password} placeholder="passowrod" onChange={e => setPassword(e.target.value)} /><br />
-                <div className="btn" onClick={submit}>log in</div><br />
+                <div className="btn" onClick={()=> actionsLogIn({login, password, redirect})}>log in</div><br />
                 <span>no account? <span className="link" onClick={() => setLocation('/register')}>sign up</span></span>
             </div>
 

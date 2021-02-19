@@ -17,3 +17,18 @@
     padding-right: 0.5rem;
     margin: 1rem 0;
 }
+
+.menu {
+    position: absolute;
+    transform: translateX(-43%);
+    width: 10%;
+}
+
+.menu-part > div {
+    text-align: center;
+}
+
+.menu-part > div >span {
+    font-size: 1rem;
+    
+}

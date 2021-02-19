@@ -13,6 +13,7 @@ import CreatePost from './components/pages/createpost/createPost';
 import { Route } from "wouter";
 import LoginPage from './components/pages/login/login';
 import SignupPage from './components/pages/signup/signup';
+import ProfilePage from './components/pages/profile/profile';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -30,6 +31,10 @@ ReactDOM.render(
       </Route>
       <Route path="/register">
         <SignupPage />
+      </Route>
+      {/* TODO: make the profile route take an argument */}
+      <Route path="/profile">
+        <ProfilePage />
       </Route>
     </Provider>
   </React.StrictMode>,
