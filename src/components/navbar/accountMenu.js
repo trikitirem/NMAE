@@ -6,17 +6,24 @@ import { useLocation } from 'wouter';
 function AccountMenu({ auth, actionsLogOut }) {
     const [location, setLocation] = useLocation();
 
-    //TODO: make menu update after log out
+    const logOut = () => {
+        actionsLogOut();
+
+        if (location !== "/")
+            setLocation("/");
+        else
+            window.location.reload();
+    }
 
     return (<div>
         {auth.id !== "" ? <div className="menu-part">
-            <div onClick={()=> {setLocation("/profile")}}><span>my account</span></div>
-            <div onClick={()=> actionsLogOut()}><span>log out</span></div>
+            <div onClick={() => { setLocation("/profile/" + auth.id) }}><span>my account</span></div>
+            <div onClick={logOut}><span>log out</span></div>
         </div> :
             <div className="menu-part">
-                <div><span style={{fontSize: "0.9rem"}}>you are not logged in yet</span></div>
-                <div><span style={{color: "#f55742"}}
-                onClick={()=> setLocation("/login")}>log in</span></div>
+                <div><span style={{ fontSize: "0.9rem" }}>you are not logged in yet</span></div>
+                <div><span style={{ color: "#f55742" }}
+                    onClick={() => setLocation("/login")}>log in</span></div>
             </div>}
     </div>);
 }

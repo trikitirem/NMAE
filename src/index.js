@@ -33,8 +33,8 @@ ReactDOM.render(
         <SignupPage />
       </Route>
       {/* TODO: make the profile route take an argument */}
-      <Route path="/profile">
-        <ProfilePage />
+      <Route path="/profile/:id">
+        {params => <ProfilePage id={params.id} />}
       </Route>
     </Provider>
   </React.StrictMode>,
