@@ -17,7 +17,7 @@ function AccountMenu({ auth, actionsLogOut }) {
 
     return (<div>
         {auth.id !== "" ? <div className="menu-part">
-            <div onClick={() => { setLocation("/profile/" + auth.id) }}><span>my account</span></div>
+            <div onClick={() => { setLocation(`/profile/${auth.id}`) }}><span>my account</span></div>
             <div onClick={logOut}><span>log out</span></div>
         </div> :
             <div className="menu-part">

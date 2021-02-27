@@ -1,22 +1,27 @@
-export const actionsLogIn = (data) => {
-    console.log(JSON.stringify({ login: data.login, password: data.password }));
+const options = {
+    method: "post",
+    headers: {
+        "Content-Type": "application/json"
+    }
+}
 
+const authenticateUser = (dispatch, user, redirect) => {
+    if (user.errors) {
+        //TODO: display suitable information
+    } else {
+        dispatch({ type: "AUTH_USER", user: { ...user } });
+        redirect();
+    }
+}
+
+export const actionsLogIn = (data) => {
     return async (dispatch, getState) => {
         const query = await fetch("http://localhost:8080/login", {
             body: JSON.stringify({ login: data.login, password: data.password }),
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            }
+            ...options
         });
         const user = await query.json();
-        if (user.errors) {
-            //TODO: display suitable information
-        } else {
-            console.log("works")
-            dispatch({ type: "AUTH_USER", user: { ...user.user } });
-            data.redirect();
-        }
+        authenticateUser(dispatch, user, data.redirect);
     };
 }
 
@@ -26,19 +31,10 @@ export const actionsSignUp = (data) => {
     return async (dispatch, getState) => {
         const query = await fetch("http://localhost:8080/signup", {
             body: JSON.stringify({ login: data.login, password: data.password }),
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            }
+            ...options
         });
         const user = await query.json();
-        if (user.errors) {
-            //TODO: display suitable information
-        } else {
-            console.log(user);
-            dispatch({ type: "AUTH_USER", user: { ...user.user } });
-            data.redirect();
-        }
+        authenticateUser(dispatch, user, data.redirect);
     };
 }
 
