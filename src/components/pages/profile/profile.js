@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Navbar from '../../navbar/navbar'
-import { useLocation } from 'wouter';
+
 
 function ProfilePage({ id }) {
     

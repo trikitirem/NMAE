@@ -5,7 +5,7 @@ import { useLocation } from "wouter";
 import './style.css';
 
 function LoginPage({actionsLogIn}) {
-    const [location, setLocation] = useLocation();
+    const [, setLocation] = useLocation();
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 

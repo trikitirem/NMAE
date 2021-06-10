@@ -4,7 +4,7 @@ import { actionsSignUp } from '../../../store/actions/authActions';
 import { useLocation } from "wouter";
 
 function SignupPage({ actionsSignUp }) {
-    const [location, setLocation] = useLocation();
+    const [, setLocation] = useLocation();
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 

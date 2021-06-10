@@ -13,7 +13,7 @@ export default function ImageElement({ id, uploaded, save, image }) {
     //TODO: style ImageUploader
     return (<div>
         {uploaded ?
-            <div className="image-display"><img src={image} /></div> :
+            <div className="image-display"><img src={image} alt="img" /></div> :
             <div className="img-input">
                 <div>
                     <label htmlFor="img-input">Upload image</label>

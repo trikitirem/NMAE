@@ -9,6 +9,7 @@ const authReducer = (state = initState, action) => {
             break;
         case "LOG_OUT":
             state = {id: ""};
+            break;
         default:
             break;
     }

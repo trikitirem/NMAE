@@ -32,7 +32,7 @@ function CreatePost({ addArticle }) {
 
     const removeElement = (id) => {
         let newState = article;
-        newState.elements = newState.elements.filter(item => item.id != id);
+        newState.elements = newState.elements.filter(item => item.id !== id);
         setArticle({ ...newState });
     }
 
